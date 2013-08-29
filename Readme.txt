@@ -1,0 +1,3 @@
+Mimicry and phenology model
+============================
+This model is designed to look at the impact of environmental warming on the phenology of models and their mimics.  The model takes a population of prey under a standard emergence phenology and varies the emergence relative to the emergence of a predator.  The resulting impacts on the learning of a predator are then evaluated using a signal detection model.
