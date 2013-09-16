@@ -147,7 +147,7 @@ for(GHI in 1:model.reps){
 	model.pop<-cbind(model.pop,newday.mod)
 
 # This code looks at the predator response to each of the models and mimics, taking each predator in turn.
-for (z in 1:pred.num){	
+for (z in sample(c(1:pred.num),pred.num)){	
 	# If there aren't any adults and we are on the first day of the year, establish the initial values (probability of attacking anything is 1) and move to the next day
 	if(y==1 & length(subset(c(mimic.pop[,1],model.pop[,1]),c(mimic.pop[,y+4],model.pop[,y+4])=="adult"))==0) {Time.point[y]<-y; p.attack.model[y,z]<-1; p.attack.mimic[y,z]<-1; enc.species[y,z]<-"None"; attacked[y,z]<-"None" ; next}
 	# If there aren't any adults and we are not on the first day of the year, everything stays the same and move to the next day
