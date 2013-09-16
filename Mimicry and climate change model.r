@@ -166,8 +166,9 @@ for (z in sample(c(1:pred.num),pred.num)){
 	# The predator makes a decision over whether or not to attack the prey item based on the relatively likelihood of it being either a mimic
 	# or a model.  This code says that the predator will consider the prey a model if a random number between 0 and 1 is lower than the relative 
 	# probability that the animal is a model.  Hence, when the probability of the phenotype indicating a model is high, there is a high chance that
-	# that probability will be greater than a random number between 0 and 1, and the predator will be more likely to guess "model".
-	if(runif(1)<dnorm(enc.phenotype,mean=35,sd=learning[y,z])/(dnorm(enc.phenotype,mean=35,sd=learning[y,z])+dnorm(enc.phenotype,mean=mimic.mean.phenotype[DEF],sd=learning[y,z]))) {guess<-"model"} else {guess<-"mimic"}
+	# that probability will be greater than a random number between 0 and 1, and the predator will be more likely to guess "model".  The sd
+	# of 3 can be replaced by learning[y,z] to make the predators learn.  Currently their response is constant.
+	if(runif(1)<dnorm(enc.phenotype,mean=35,sd=3)/(dnorm(enc.phenotype,mean=35,sd=3)+dnorm(enc.phenotype,mean=mimic.mean.phenotype[DEF],sd=3))) {guess<-"model"} else {guess<-"mimic"}
 
 # For the first time step, it was easier to specify what was happening.  Because the initial p.attack for both models and mimics is 1, the
 # predator will attack whatever it sees.  Of course, under the current temp.fun, it never sees anything on day 1 so this is moot.
